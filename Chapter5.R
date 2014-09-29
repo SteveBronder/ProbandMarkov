@@ -80,6 +80,8 @@ Identity <- diag(1,3,3)
 #  [1,1] is expected number of times you'll go to blood from blood
 U.matrix <- solve((Identity-Tran.matrix))
 
+U.matrix
+
 apply(U.matrix,1,sum)
 
 
@@ -95,9 +97,11 @@ S.matrix <- Full.matrix[3:5,1:2]
 # 22 percent chance of radioactive stuff exiting from urine
 A.matrix <- U.matrix%*%S.matrix
 
+A.matrix
+
 ################################
 ################################
-######## Problem 1.15 ##########
+######## Problem 5.15 ##########
 ################################
 ################################
 
@@ -118,6 +122,8 @@ Identity <- diag(1,6,6)
 # Use solve to find U.
 #  [1,1] is expected number of times you'll go to blood from blood
 U.matrix <- solve((Identity-Tran.matrix))
+
+U.matrix
 
 apply(U.matrix,1,sum)
 
@@ -141,5 +147,30 @@ Identity <- diag(1,5,5)
 # Use solve to find U.
 #  [1,1] is expected number of times you'll go to blood from blood
 U.matrix <- solve((Identity-Tran.matrix))
+
+U.matrix
+
+apply(U.matrix,1,sum)
+
+############################
+### Problem 5.49 ###########
+############################
+
+Full.matrix <- matrix(c(1.00,0.00,0.00,0.00,
+                        0.30,0.20,0.40,0.10,
+                        0.00,0.40,0.10,0.50,
+                        0.00,0.30,0.50,0.20)
+                      ,4,4,byrow=TRUE)
+
+Tran.matrix <- Full.matrix[2:4,2:4]
+
+
+# Make identity
+Identity <- diag(1,3,3)
+# Use solve to find U.
+#  [1,1] is expected number of times you'll go to blood from blood
+U.matrix <- solve((Identity-Tran.matrix))
+
+U.matrix
 
 apply(U.matrix,1,sum)
