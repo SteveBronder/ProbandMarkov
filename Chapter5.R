@@ -100,6 +100,25 @@ A.matrix <- U.matrix%*%S.matrix
 A.matrix
 
 ################################
+##### Problem 5.4 ##############
+################################
+
+Full.matrix <- matrix(c(1,0,0,0,
+                        1/15,14/15,0,0,
+                        0,4/15,11/15,0,
+                        0,0,3/5,2/5),4,4,byrow=TRUE)
+
+
+Tran.matrix <- Full.matrix[2:4,2:4]
+# Make identity
+Identity <- diag(1,3,3)
+# Use solve to find U.
+#  [1,1] is expected number of times you'll go to blood from blood
+U.matrix <- solve((Identity-Tran.matrix))
+
+U.matrix
+
+################################
 ################################
 ######## Problem 5.15 ##########
 ################################
