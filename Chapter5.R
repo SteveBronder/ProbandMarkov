@@ -117,6 +117,8 @@ Identity <- diag(1,3,3)
 U.matrix <- solve((Identity-Tran.matrix))
 
 U.matrix
+# Expected value of times to visit each step
+apply(U.matrix,1,sum)
 
 ################################
 ################################
@@ -169,7 +171,15 @@ U.matrix <- solve((Identity-Tran.matrix))
 
 U.matrix
 
-apply(U.matrix,1,sum)
+ans.1 <- U.matrix[1,1]
+ans.1
+
+
+ans.2 <- U.matrix[1,2]
+ans.2
+
+ans.3<-apply(U.matrix,1,sum)[4]
+ans.3
 
 ############################
 ### Problem 5.28 ###########
@@ -201,23 +211,54 @@ apply(U.matrix,1,sum)
 
 #ss =
   
-#  [ q, 0]
+#  [ 0, q]
 #  [ 0, 0]
-#  [ 0, p]
+#  [ p, 0]
 
 #>> U*ss
 
 #ans =
-  
-#  [ (q*(p*q - 1))/(2*p*q - 1),          -p^3/(2*p*q - 1)]
-#  [          -q^2/(2*p*q - 1),          -p^2/(2*p*q - 1)]
-#  [          -q^3/(2*p*q - 1), (p*(p*q - 1))/(2*p*q - 1)]
+# Pick Deuce
+# [          -p^3/(2*p*q - 1), (q*(p*q - 1))/(2*p*q - 1)]
+# [          -p^2/(2*p*q - 1),          -q^2/(2*p*q - 1)]
+# [ (p*(p*q - 1))/(2*p*q - 1),          -q^3/(2*p*q - 1)
+
+# Part B left side is probability of a winning starting at various points.
+#i
+
+#[ 1, 0]
+#[ 1, 0]
+#[ 1, 0]
+
+#ii
+
+#[ 39/40,  1/40]
+#[  9/10,  1/10]
+#[ 27/40, 13/40]
+
+#iii
+
+#[ 3/4, 1/4]
+#[ 1/2, 1/2]
+#[ 1/4, 3/4]
+
+#iv
 
 
+#[ 13/40, 27/40]
+#[  1/10,  9/10]
+#[  1/40, 39/40]
 
+#v
+
+#[ 0, 1]
+#[ 0, 1]
+#[ 0, 1]
 ############################
 ### Problem 5.49 ###########
 ############################
+
+# A. f32 and f42 will both be 1
 
 Full.matrix <- matrix(c(1.00,0.00,0.00,0.00,
                         0.30,0.20,0.40,0.10,
@@ -231,9 +272,28 @@ Tran.matrix <- Full.matrix[2:4,2:4]
 # Make identity
 Identity <- diag(1,3,3)
 # Use solve to find U.
-#  [1,1] is expected number of times you'll go to blood from blood
+
 U.matrix <- solve((Identity-Tran.matrix))
 
 U.matrix
 
+apply(U.matrix,1,sum)
+
+# Now do problem b.
+
+Full.matrix <- matrix(c(1.00,0.00,0.00,
+                        0.40,0.10,0.50,
+                        0.30,0.50,0.20)
+                      ,3,3,byrow=TRUE)
+
+Tran.matrix <- Full.matrix[2:3,2:3]
+
+
+Identity <- diag(1,2,2)
+# Use solve to find U.
+#  [1,1] is expected number of times you'll go to blood from blood
+U.matrix <- solve((Identity-Tran.matrix))
+U.matrix
+
+#Probs from 3 and 4 to 2
 apply(U.matrix,1,sum)
