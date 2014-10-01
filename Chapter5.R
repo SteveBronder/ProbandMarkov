@@ -110,14 +110,21 @@ Full.matrix <- matrix(c(1,0,0,0,
 
 
 Tran.matrix <- Full.matrix[2:4,2:4]
+
 # Make identity
+
 Identity <- diag(1,3,3)
+
 # Use solve to find U.
+
 #  [1,1] is expected number of times you'll go to blood from blood
+
 U.matrix <- solve((Identity-Tran.matrix))
 
 U.matrix
+
 # Expected value of times to visit each step
+
 apply(U.matrix,1,sum)
 
 ################################
@@ -140,8 +147,9 @@ Tran.matrix <- Full.matrix[2:7,2:7]
 
 # Make identity
 Identity <- diag(1,6,6)
+
 # Use solve to find U.
-#  [1,1] is expected number of times you'll go to blood from blood
+
 U.matrix <- solve((Identity-Tran.matrix))
 
 U.matrix
@@ -273,8 +281,8 @@ Tran.matrix <- Full.matrix[2:3,2:3]
 
 
 Identity <- diag(1,2,2)
+
 # Use solve to find U.
-#  [1,1] is expected number of times you'll go to blood from blood
 U.matrix <- solve((Identity-Tran.matrix))
 U.matrix
 
